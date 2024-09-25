@@ -18,7 +18,7 @@ data "aws_lb" "api_lb" {
 
 data "aws_lb_listener" "http_listener" {
   load_balancer_arn = data.aws_lb.api_lb.arn
-  port              = 80
+  port              = 8080
 }
 
 # API Gateway Authorizer

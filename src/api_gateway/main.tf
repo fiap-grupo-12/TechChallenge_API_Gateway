@@ -128,7 +128,7 @@ resource "aws_api_gateway_integration" "get_cliente_by_cpf_integration" {
   http_method             = aws_api_gateway_method.get_cliente_by_cpf.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Cliente/{cpf}"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Cliente/{cpf}"
 
   request_parameters = {
     "integration.request.path.cpf" = "method.request.path.cpf"
@@ -153,7 +153,7 @@ resource "aws_api_gateway_integration" "post_cliente_integration" {
   http_method             = aws_api_gateway_method.post_cliente.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "POST"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Cliente"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Cliente"
 }
 
 ### /api/Pedido - GET & POST ###
@@ -171,7 +171,7 @@ resource "aws_api_gateway_integration" "get_pedido_integration" {
   http_method             = aws_api_gateway_method.get_pedido.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido"
 }
 
 resource "aws_api_gateway_method" "post_pedido" {
@@ -191,7 +191,7 @@ resource "aws_api_gateway_integration" "post_pedido_integration" {
   http_method             = aws_api_gateway_method.post_pedido.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "POST"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido"
 }
 
 ### /api/Pedido/{Id} - GET ###
@@ -212,7 +212,7 @@ resource "aws_api_gateway_integration" "get_pedido_by_id_integration" {
   http_method             = aws_api_gateway_method.get_pedido_by_id.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido/{Id}"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido/{Id}"
 
   request_parameters = {
     "integration.request.path.Id" = "method.request.path.Id"
@@ -234,7 +234,7 @@ resource "aws_api_gateway_integration" "get_pedido_filtrados_integration" {
   http_method             = aws_api_gateway_method.get_pedido_filtrados.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido/Filtrados"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido/Filtrados"
 }
 
 ### /api/Pedido/StatusPagamento/{Id} - GET ###
@@ -255,7 +255,7 @@ resource "aws_api_gateway_integration" "get_status_pagamento_by_id_integration" 
   http_method             = aws_api_gateway_method.get_status_pagamento_by_id.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido/StatusPagamento/{Id}"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido/StatusPagamento/{Id}"
 
   request_parameters = {
     "integration.request.path.Id" = "method.request.path.Id"
@@ -280,7 +280,7 @@ resource "aws_api_gateway_integration" "put_status_pedido_integration" {
   http_method             = aws_api_gateway_method.put_status_pedido.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "PUT"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido/StatusPedido"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido/StatusPedido"
 }
 
 ### /api/Pedido/StatusPagamento - PUT ###
@@ -301,7 +301,7 @@ resource "aws_api_gateway_integration" "put_status_pagamento_integration" {
   http_method             = aws_api_gateway_method.put_status_pagamento.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "PUT"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Pedido/StatusPagamento"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Pedido/StatusPagamento"
 }
 
 ### /api/Produto/{categoria} - GET ###
@@ -322,7 +322,7 @@ resource "aws_api_gateway_integration" "get_produto_by_categoria_integration" {
   http_method             = aws_api_gateway_method.get_produto_by_categoria.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "GET"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Produto/{categoria}"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Produto/{categoria}"
 
   request_parameters = {
     "integration.request.path.categoria" = "method.request.path.categoria"
@@ -347,7 +347,7 @@ resource "aws_api_gateway_integration" "post_produto_integration" {
   http_method             = aws_api_gateway_method.post_produto.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "POST"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Produto"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Produto"
 }
 
 resource "aws_api_gateway_method" "put_produto" {
@@ -367,7 +367,7 @@ resource "aws_api_gateway_integration" "put_produto_integration" {
   http_method             = aws_api_gateway_method.put_produto.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "PUT"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Produto"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Produto"
 }
 
 resource "aws_api_gateway_method" "delete_produto" {
@@ -387,7 +387,7 @@ resource "aws_api_gateway_integration" "delete_produto_integration" {
   http_method             = aws_api_gateway_method.delete_produto.http_method
   type                    = "HTTP_PROXY"
   integration_http_method = "DELETE"
-  uri                     = "http://${data.aws_lb.api_lb.dns_name}/api/Produto"
+  uri                     = "http://${data.aws_lb.api_lb.dns_name}:8080/api/Produto"
 
   request_parameters = {
     "integration.request.querystring.id" = "method.request.querystring.id"
